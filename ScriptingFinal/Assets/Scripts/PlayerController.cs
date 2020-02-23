@@ -2,17 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private LayerMask platformMask; 
+    [SerializeField] private LayerMask platformMask;
     private Rigidbody2D rigidbody2d;
     private BoxCollider2D boxCollider2D;
+    StepColor stepColor;
     SpriteRenderer rend;
-    public Color colorIs;
+    public Color color;
 
-    private float Speed = 5; 
+    float Speed = 5; 
     
 
 
@@ -21,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         rend.color = Color.white;
-        colorIs = Color.white;
+        color = Color.white;
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
     }
@@ -35,27 +37,8 @@ public class PlayerController : MonoBehaviour
             rigidbody2d.velocity = Vector2.up * Jump;
         }
 
-        MovementUpdate();
-
-        if(Input.GetButton("Red"))
-        {
-            rend.color = Color.red;
-            colorIs = Color.red;
-        }
-
-        if (Input.GetButton("Green"))
-        {
-            rend.color = Color.green;
-            colorIs = Color.green;
-        }
-
-        if (Input.GetButton("Blue"))
-        {
-            rend.color = Color.blue;
-            colorIs = Color.blue;
-        }
-
-
+        this.MovementUpdate();
+        this.IsAlive();
 
     }
 
@@ -73,12 +56,47 @@ public class PlayerController : MonoBehaviour
             rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
         }
 
+        if (Input.GetButton("Red"))
+        {
+            rend.color = Color.red;
+            color = Color.red;
+        }
+
+        if (Input.GetButton("Green"))
+        {
+            rend.color = Color.green;
+            color = Color.green;
+        }
+
+        if (Input.GetButton("Blue"))
+        {
+            rend.color = Color.blue;
+            color = Color.blue;
+        }
+
+
+    }
+
+    protected virtual void IsAlive()
+    {
+        if(transform.position.y < -5.5f)
+        {
+            SceneManager.LoadScene("Begging");
+        }
     }
 
     private bool IsGrounded()
     {
         RaycastHit2D raycast2d = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, .1f, platformMask);
         return raycast2d.collider != null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Finish")
+        {
+            SceneManager.LoadScene("Begging");    // Begging and FallingLevel
+        }
     }
 
 }

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6935360025575966830}
   - component: {fileID: 6935360025575966831}
   - component: {fileID: 6935360025575966828}
+  - component: {fileID: 6935360025575966825}
   - component: {fileID: 6935360025575966829}
   - component: {fileID: 6935360025575966834}
-  - component: {fileID: 6935360025575966825}
   m_Layer: 8
   m_Name: Step
   m_TagString: Steps
@@ -81,6 +81,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6935360025575966825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6935360025575966835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebc1c455a66cbf4fa9df27f231924cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  colorStep: {r: 0, g: 0, b: 0, a: 0}
+  col: {fileID: 6935360025575966829}
+  colorSet:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
 --- !u!61 &6935360025575966829
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,17 +143,5 @@ PlatformEffector2D:
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 150
   m_UseSideFriction: 0
-  m_UseSideBounce: 1
-  m_SideArc: 27
---- !u!114 &6935360025575966825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6935360025575966835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebc1c455a66cbf4fa9df27f231924cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_UseSideBounce: 0
+  m_SideArc: 0.2

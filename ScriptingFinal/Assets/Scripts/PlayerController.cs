@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D boxCollider2D;
     StepColor stepColor;
     SpriteRenderer rend;
-    public Color color;
+    public Color colorIs;
 
     float Speed = 5; 
     
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         rend.color = Color.white;
-        color = Color.white;
+        colorIs = Color.white;
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
     }
@@ -59,19 +59,19 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Red"))
         {
             rend.color = Color.red;
-            color = Color.red;
+            colorIs = Color.red;
         }
 
         if (Input.GetButton("Green"))
         {
             rend.color = Color.green;
-            color = Color.green;
+            colorIs = Color.green;
         }
 
         if (Input.GetButton("Blue"))
         {
             rend.color = Color.blue;
-            color = Color.blue;
+            colorIs = Color.blue;
         }
 
 

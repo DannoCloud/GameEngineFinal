@@ -24,7 +24,7 @@ public class StepColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        col.enabled = colorStep != player.color ? false : true;
+        col.enabled = colorStep != player.colorIs ? false : true;
     }
 
 
@@ -35,6 +35,12 @@ public class StepColor : MonoBehaviour
         colorStep = rend.material.color = colorSet[Random.Range(0, colorSet.Length)];
     }
 
-   
+
+
+
+    //private void OnCollisionEnter2D(Collision2D collision)     // Destorys the step the player touches ... Make another script and use this for another level?
+    //{
+    //    Destroy(gameObject, 3);
+    //}
 
 }

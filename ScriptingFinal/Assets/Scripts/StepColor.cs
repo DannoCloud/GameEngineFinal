@@ -6,8 +6,8 @@ public class StepColor : MonoBehaviour
 {
     public PlayerController player;
     MeshRenderer rend;
-    public Color colorStep;
-    public BoxCollider2D col;
+    public  Color colorStep;
+    public  BoxCollider2D col;
 
     public Color[] colorSet = new Color[] { Color.red, Color.blue, Color.green };
 
@@ -24,7 +24,9 @@ public class StepColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         col.enabled = colorStep != player.colorIs ? false : true;
+
     }
 
 

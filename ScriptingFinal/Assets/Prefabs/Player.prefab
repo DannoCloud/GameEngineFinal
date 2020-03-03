@@ -95,7 +95,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -145,4 +145,4 @@ MonoBehaviour:
   platformMask:
     serializedVersion: 2
     m_Bits: 256
-  color: {r: 0, g: 0, b: 0, a: 0}
+  colorIs: {r: 0, g: 0, b: 0, a: 0}

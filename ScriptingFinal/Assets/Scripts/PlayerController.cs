@@ -7,23 +7,22 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private LayerMask platformMask;
+    [SerializeField] 
+    private LayerMask platformMask;
     private Rigidbody2D rigidbody2d;
     private BoxCollider2D boxCollider2D;
     StepColor stepColor;
     SpriteRenderer rend;
     public Color colorIs;
 
-    float Speed = 5; 
-    
-
+    float Speed = 5;
 
     // Start is called before the first frame update
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         rend.color = Color.white;
-        colorIs = Color.white;
+        //colorIs = Color.white;
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
     }
@@ -56,10 +55,13 @@ public class PlayerController : MonoBehaviour
             rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
         }
 
+        
+
         if (Input.GetButton("Red"))
         {
             rend.color = Color.red;
             colorIs = Color.red;
+            
         }
 
         if (Input.GetButton("Green"))
@@ -74,8 +76,9 @@ public class PlayerController : MonoBehaviour
             colorIs = Color.blue;
         }
 
-
+      
     }
+
 
     protected virtual void IsAlive()
     {
@@ -95,8 +98,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Finish")
         {
-            SceneManager.LoadScene("Begging");    // Begging and FallingLevel
+            SceneManager.LoadScene("FallingLevel");    // Begging and FallingLevel
         }
     }
+
+
 
 }

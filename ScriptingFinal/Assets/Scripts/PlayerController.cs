@@ -101,6 +101,11 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("FallingLevel");    // Begging and FallingLevel
         }
+
+        if (collision.gameObject.tag == "RunFinish")
+        {
+            SceneManager.LoadScene("Run");    
+        }
     }
 
 

@@ -25,7 +25,7 @@ public class StepColor : MonoBehaviour
     void Update()
     {
 
-        col.enabled = colorStep != player.colorIs ? false : true;
+        col.enabled = colorStep == player.colorIs;
 
     }
 
@@ -38,11 +38,5 @@ public class StepColor : MonoBehaviour
     }
 
 
-
-
-    //private void OnCollisionEnter2D(Collision2D collision)     // Destorys the step the player touches ... Make another script and use this for another level?
-    //{
-    //    Destroy(gameObject, 3);
-    //}
 
 }

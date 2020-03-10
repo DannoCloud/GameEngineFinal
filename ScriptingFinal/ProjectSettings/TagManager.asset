@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Steps
+  - RunFinish
   layers:
   - Default
   - TransparentFX

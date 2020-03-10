@@ -20,7 +20,7 @@ public class DelayDestroy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)     // Destorys the step the player touches 
     {
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 1.5f);
     }
 
 }

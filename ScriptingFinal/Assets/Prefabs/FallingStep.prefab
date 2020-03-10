@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7989027930682176511}
   - component: {fileID: 7989027930682176480}
   - component: {fileID: 1739968510}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: FallingStep
   m_TagString: Steps
   m_Icon: {fileID: 0}

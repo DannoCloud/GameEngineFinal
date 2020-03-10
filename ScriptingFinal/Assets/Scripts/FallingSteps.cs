@@ -11,7 +11,7 @@ public class FallingSteps : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fallStep.gravityScale = 0.05f;
+        fallStep.gravityScale = 0.03f;
     }
 
     // Update is called once per frame

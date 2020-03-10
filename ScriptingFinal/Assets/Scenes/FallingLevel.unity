@@ -201,6 +201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FallingStep
       objectReference: {fileID: 0}
+    - target: {fileID: 7989027930682176481, guid: bbea886222ea31645a1e78d5e637df74,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7989027930682176507, guid: bbea886222ea31645a1e78d5e637df74,
         type: 3}
       propertyPath: player

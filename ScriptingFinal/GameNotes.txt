@@ -1,0 +1,2 @@
+The play testing that I have had people do on my game has shown me that my game is for people that woud need to pratice or would have to have some hand eye gaming experience. I've made the game so that if someone is better with a controller they can use that to play the game or if they would just like to use keybored controls they can to. I was able to make the game run more smoother by cutting down some code and also making it not have to complie to many things that were on the screen.  
+ 

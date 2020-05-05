@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     
     //bool HardMode;
     float Speed = 5;
+    public static bool hardmode = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,22 +59,21 @@ public class PlayerController : MonoBehaviour
             rigidbody2d.velocity = new Vector2(0, rigidbody2d.velocity.y);
         }
 
-        
 
-        if (Input.GetButton("Red"))
+        if (Input.GetButtonDown("Red"))
         {
             rend.color = Color.red;
             colorIs = Color.red;
             
         }
 
-        if (Input.GetButton("Green"))
+        if (Input.GetButtonDown("Green"))
         {
             rend.color = Color.green;
             colorIs = Color.green;
         }
 
-        if (Input.GetButton("Blue"))
+        if (Input.GetButtonDown("Blue"))
         {
             rend.color = Color.blue;
             colorIs = Color.blue;
@@ -81,25 +81,24 @@ public class PlayerController : MonoBehaviour
 
 
         // mixed colors making it harder and fixes cheating        
-            if (Input.GetButton("Red") && Input.GetButton("Blue"))
+            if (Input.GetButtonDown("Red") && Input.GetButtonDown("Blue"))
             {
                 rend.color = Color.magenta;
                 colorIs = Color.magenta;
             }
 
-            if (Input.GetButton("Red") && Input.GetButton("Green"))
+            if (Input.GetButtonDown("Red") && Input.GetButtonDown("Green"))
             {
                 rend.color = Color.yellow;
                 colorIs = Color.yellow;
             }
 
-            if (Input.GetButton("Blue") && Input.GetButton("Green"))
+            if (Input.GetButtonDown("Blue") && Input.GetButtonDown("Green"))
             {
                 rend.color = Color.cyan;
                 colorIs = Color.cyan;
             }
        
-
     }
 
 
@@ -130,14 +129,14 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "RunFinish")
         {
-           
+            hardmode = false;
             ScoreManager.Level += 1;
             SceneManager.LoadScene("Run");    
         }
 
         if (collision.gameObject.tag == "Hard")
         {
-            //HardMode = true;
+            
             ScoreManager.Level += 1;
             SceneManager.LoadScene("Hard");
 

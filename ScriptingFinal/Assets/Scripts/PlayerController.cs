@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     StepColor stepColor;
     SpriteRenderer rend;
     public Color colorIs;
-
+    
+    //bool HardMode;
     float Speed = 5;
 
     // Start is called before the first frame update
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
         this.IsAlive();
 
     }
+
 
     private void MovementUpdate()
     {
@@ -77,7 +79,27 @@ public class PlayerController : MonoBehaviour
             colorIs = Color.blue;
         }
 
-      
+
+        // mixed colors making it harder and fixes cheating        
+            if (Input.GetButton("Red") && Input.GetButton("Blue"))
+            {
+                rend.color = Color.magenta;
+                colorIs = Color.magenta;
+            }
+
+            if (Input.GetButton("Red") && Input.GetButton("Green"))
+            {
+                rend.color = Color.yellow;
+                colorIs = Color.yellow;
+            }
+
+            if (Input.GetButton("Blue") && Input.GetButton("Green"))
+            {
+                rend.color = Color.cyan;
+                colorIs = Color.cyan;
+            }
+       
+
     }
 
 
@@ -86,6 +108,7 @@ public class PlayerController : MonoBehaviour
         if(transform.position.y < -5.5f)
         {
             SceneManager.LoadScene("Begging");
+            ScoreManager.Level = 0;
         }
     }
 
@@ -97,17 +120,29 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.tag == "Finish")
         {
+            //HardMode = false;
+            ScoreManager.Level += 1;
             SceneManager.LoadScene("FallingLevel");    // Begging and FallingLevel
         }
 
         if (collision.gameObject.tag == "RunFinish")
         {
+           
+            ScoreManager.Level += 1;
             SceneManager.LoadScene("Run");    
         }
-    }
 
+        if (collision.gameObject.tag == "Hard")
+        {
+            //HardMode = true;
+            ScoreManager.Level += 1;
+            SceneManager.LoadScene("Hard");
+
+        }
+    }
 
 
 }

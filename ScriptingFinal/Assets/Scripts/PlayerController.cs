@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private LayerMask platformMask;
     private Rigidbody2D rigidbody2d;
     private BoxCollider2D boxCollider2D;
+    AudioSource JumpSound;
     StepColor stepColor;
     SpriteRenderer rend;
     public Color colorIs;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         //colorIs = Color.white;
         rigidbody2d = transform.GetComponent<Rigidbody2D>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
+        JumpSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
+            JumpSound.Play(); // plays the sound when the player jumps 
             float Jump = 6f;
             rigidbody2d.velocity = Vector2.up * Jump;
         }
@@ -127,7 +130,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("FallingLevel");    // Begging and FallingLevel
         }
 
-        if (collision.gameObject.tag == "RunFinish")
+        if (collision.gameObject.tag == "RunFinish")  
         {
             hardmode = false;
             ScoreManager.Level += 1;

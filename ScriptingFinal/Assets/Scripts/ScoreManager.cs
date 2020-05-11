@@ -31,12 +31,10 @@ public class ScoreManager : MonoBehaviour
     private static void SetupNewGame()
     {
 
-        Control = "\nMove Left/Right = Arrow keys \nJump = Up Arrow Key \n\nA = Red \nW = Green \nD = Blue \nH = hide/show \n";
+        Control = "\n\nMove Left/Right = Arrow keys \nJump = Up Arrow Key \nA = Red \nW = Green \nD = Blue \nA&W = Yellow \nA&D = Magenta \nW & D = Cyan \nH = hide / show ";
 
-        Xcontrol = "\nMove Left/Right =  Left Analog Stick  \nJump = RB (Right Bumpber) \n\nX Button = Red \nY Button = Green \nB Button = Blue\nSelect = hide/show";
+        Xcontrol = "\n\nMove Left/Right =  Left Analog Stick  \nJump = RB (Right Bumpber) \nX Button = Red \nY Button = Green \nB Button = Blue\nX&Y = Yellow \nX&B = Magenta \nY&B = Cyan \nSelect = hide/show";
 
-        // Hard Mode Text
-        ContHard = "A = Red \nW = Green \nD = Blue \nA&W = Yellow \nA&D = Magenta \nW&D = Cyan\nH = hide/show \n";  
 
     }
 
@@ -74,7 +72,7 @@ public class ScoreManager : MonoBehaviour
             {
 
                     ControlText.text = "\tKeyboard Controls: " + Control.ToString();
-                    XboxControl.text = "\tXbox Controls: " + Xcontrol.ToString();
+                    XboxControl.text = "Xbox Controls: " + Xcontrol.ToString();
 
             }
 
